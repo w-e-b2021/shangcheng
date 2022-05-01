@@ -1,0 +1,46 @@
+@bgc: #61a6fa;
+.bgc(@p:1){
+  background-color: rgba(97, 166, 250,@p);
+}
+
+//点击后背景变成蓝色，字体变成白色
+.react-color{
+  background-color: #61a6fa !important;
+  color: #fff !important;
+}
+
+.color(@r,@g,@b,@o:1){
+  color: rgba(@r, @g, @b, @o);
+}
+
+.wordellipsis(@num:1){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @num;
+  overflow: hidden
+}
+.ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clearfis::after{
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+
+.clearfix::after,.clearfix::before{
+  display: table;
+  content: '';
+}
+.clearfix::after{
+  clear: both;
+}
+.clearfix{
+  *zoom: 1;
+}

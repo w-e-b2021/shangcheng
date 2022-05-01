@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1[data-123|='1'] {
+        color: red;
+      }
+      [data-123] p {
+        color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: row; width: 100px; height: 100px; background-color: pink">
+      <div style="width: 50px; height: 20px; background-color: green">1</div>
+      <div style="flex: 1; background-color: blue; box-sizing: border-box; overflow: hidden">
+        <h1 style="width: 500px">1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+      </div>
+    </div>
+    <h1 data-123="1-2">
+      0
+      <p>1234</p>
+    </h1>
+    <h1 data-456>5678</h1>
+    <form action="#" method="post">
+      <input type="checkbox" name="first" />
+      <input type="checkbox" name="second" />
+      <input type="checkbox" name="third" checked="checked" />
+      <input type="submit" value="点击" />
+    </form>
+    <script>
+      var input = document.querySelector('input')
+      input.onchange = function () {
+        console.dir(input)
+      }
+      // throw '出错了'
+      document.onclick = function () {
+        throw '出错了'
+        alert(1)
+      }
+      document.oncontextmenu = function () {
+        console.log('ok')
+      }
+      let promise = new Promise((resole, reject) => {
+        reject('reject调用!')
+        console.log(123)
+        throw '出错了'
+        console.log('****')
+        if (true) {
+          reject('reject调用!')
+        } else {
+          console.log('resole调用')
+          resole('resole调用')
+        }
+      }).then(value => {
+        console.log(value)
+      })
+
+      let promise1 = new Promise((resole, reject) => {
+        if (true) {
+          resole('resole调用')
+        }
+      }).then(value => {
+        console.log('resole调用promise1')
+      })
+      input.setAttribute('checked', '11')
+      // console.log(input.attributes)
+    </script>
+  </body>
+</html>
