@@ -9,7 +9,7 @@
 [https://gitee.com/newbee-ltd/newbee-mall-vue3-app.git](http://)
 
 #### 项目源码
-| github | [git@github.com:w-e-b2021/shangcheng.git](http://) |
+| github | [https://github.com/w-e-b2021/shangcheng.git](http://) |
 |--------|-----------------------------------------|
 | 码云     | [https://gitee.com/tianxiaodao/fenwo.git](http://) |
 
