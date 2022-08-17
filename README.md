@@ -6,12 +6,12 @@
 
 ### 参照模板
 
-https://gitee.com/newbee-ltd/newbee-mall-vue3-app.git
+[https://gitee.com/newbee-ltd/newbee-mall-vue3-app.git](http://)
 
 #### 项目源码
-| github | git@github.com:w-e-b2021/shangcheng.git |
+| github | [git@github.com:w-e-b2021/shangcheng.git](http://) |
 |--------|-----------------------------------------|
-| 码云     | https://gitee.com/tianxiaodao/fenwo.git |
+| 码云     | [https://gitee.com/tianxiaodao/fenwo.git](http://) |
 
 
 #### 体验地址
