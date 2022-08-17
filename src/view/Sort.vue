@@ -2,7 +2,7 @@
   <div class="container">
     <div class="bg"></div>
     <div class="outer">
-      <div class="left" @click="push('/msite')">
+      <div class="left">
         <span class="iconfont icon-icon-test6"></span>
       </div>
       <router-link to="/search?refresh=true" class="link">
@@ -62,9 +62,10 @@ export default {
     onMounted(async () => {
       let { data } = await getSort()
       _data.categorys = data
-      changCategory(_data.categorys[0], _data.categorys)
+
       nextTick(() => {
         BS = Bscroll()
+        changCategory(_data.categorys[0], _data.categorys)
         new BSCROLL('.wrapper1', {
           click: true,
           probeType: 2,

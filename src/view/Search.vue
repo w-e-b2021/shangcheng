@@ -77,9 +77,10 @@ import { getSearchList } from '@/service/good.js'
 
 import Goods from '@/components/Goods.vue'
 
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { nextTick, reactive, toRefs, onActivated } from 'vue'
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Search',
   components: { Goods },
   setup() {
@@ -122,7 +123,7 @@ export default {
     }
     //请求
     async function init() {
-      alert(_data.params.pageNumber)
+      // alert(_data.params.pageNumber)
       if (!_data.params.keyword) {
         _data.list = []
         _data.finished = true
@@ -165,7 +166,7 @@ export default {
     }
     //下拉搜索
     function onLoad() {
-      alert('onLoad')
+      // alert('onLoad')
       _data.loading = true
       init()
     }

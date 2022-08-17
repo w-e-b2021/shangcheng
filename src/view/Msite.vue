@@ -8,7 +8,6 @@
           loop
           :autoplay="{ delay: 3000 }"
           :pagination="{ clickable: true }"
-          @swiper="onSwiper"
         >
           <swiper-slide class="swiper-slide" v-for="(img, index) in imgs" :key="index">
             <img :src="img.carouselUrl" alt="" />
@@ -27,6 +26,14 @@
         </div>
       </div>
     </ul>
+
+    <div class="title_dynamic" v-show="scroll_flag" :style="`transform: translateY(${-top}px)`">
+      {{ arr[currentIndex] }}
+    </div>
+    <!-- 这里可以放一些其它的 DOM,但不会影响滚动 -->
+    <!-- <h3 style="position: fixed; top: 500px" @click="num++">
+      {{ num }}--{{ currentIndex }}--{{ top }}--{{ flag }}
+    </h3> -->
     <TopSearch :top_flag="top_flag" @bgheight="bgheight">
       <template #left>
         <div class="left">
@@ -53,18 +60,10 @@
         </div>
       </template>
     </TopSearch>
-    <div class="title_dynamic" v-show="scroll_flag" :style="`transform: translateY(${-top}px)`">
-      {{ arr[currentIndex] }}
-    </div>
-    <!-- 这里可以放一些其它的 DOM,但不会影响滚动 -->
-    <!-- <h3 style="position: fixed; top: 500px" @click="num++">
-      {{ num }}--{{ currentIndex }}--{{ top }}--{{ flag }}
-    </h3> -->
   </div>
 </template>
 
 <script>
-import BScroll from '@better-scroll/core'
 import { Autoplay, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
@@ -76,12 +75,12 @@ import MsiteNav from '@/components/MsiteNav.vue'
 import ShopList from '@/components/ShopList.vue'
 
 import { useStore } from 'vuex'
-import { reactive, onMounted, computed, onUpdated, ref, nextTick, onBeforeUpdate } from 'vue'
+import { reactive, computed, onUpdated, ref, nextTick } from 'vue'
 import useBscroll from '@/hooks/useBscroll.js'
 
 export default {
   components: { TopSearch, Swiper, SwiperSlide, MsiteNav, ShopList },
-  setup(props, context) {
+  setup() {
     let loginFlag = ref(false)
     loginFlag.value = localStorage.getItem('token') ? true : false
     let num = ref(0)
@@ -96,10 +95,6 @@ export default {
     const topsearch = ref()
     const arr = reactive(['新品上线', '热销爆款', '官方推荐'])
 
-    const onSwiper = swiper => {
-      // console.log(swiper)
-    }
-    // --------
     let currentIndex = computed(() => {
       return arr_lis.value.findIndex((item, index) => {
         return bscrollY.value >= item && bscrollY.value <= arr_lis.value[index + 1]
@@ -167,11 +162,12 @@ export default {
       qw--
     })
 
-    function show() {}
+    function show() {
+      alert('no page')
+    }
     return {
       loginFlag,
       num,
-      onSwiper,
       imgs,
       arr,
       shoplists,
@@ -260,11 +256,10 @@ export default {
   height: 100%;
   .msite-container {
     padding-bottom: 50px;
-    // background-color: #fff;
+    background-color: #fff;
     .swiper {
       margin: 0;
       height: 170px;
-      z-index: -1;
       .swiper-slide {
         width: 100% !important;
         height: 100%;

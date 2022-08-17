@@ -11,7 +11,6 @@
 import FooterNarBar from '@/components/FooterNarBar.vue'
 
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
 export default {
   name: 'App',
   components: {
