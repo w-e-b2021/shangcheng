@@ -37,3 +37,9 @@ npm run build
 #### 技术栈
 1. vue3+vue-router+vuex+axios+vant
 
+#### 预览
+![输入图片说明](static/8C2F862387214D526D0158CB33988C81.jpg)
+![输入图片说明](static/6342D04A15E335F0CD925E12A1717048.jpg)
+![输入图片说明](static/C3C98B5BF7BC473FC66AEAEE28477913.jpg)
+![输入图片说明](static/B2C2B76E9FB00D818861A5D74F0CD353.jpg)
+
